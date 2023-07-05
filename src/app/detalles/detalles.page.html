@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="'/home'">
+        Inicio
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="title">Almacen de Pokemon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content">
+  <ion-card *ngFor="let item of descrip" class="card">
+    <ion-card-content class="card-content">
+      <img src="{{ item.sprites.other.home.front_default }}" alt="Sprite" class="pokemon-image"> <!-- Imagen del Pokémon -->
+      <p class="ability">Habilidad Especial: <br>{{ item.abilities[0].ability.name }}</p> <!-- Habilidad especial del Pokémon -->
+      <p class="experience">Experiencia Base:<br> {{ item.base_experience }}</p> <!-- Experiencia base del Pokémon -->
+      <p class="height">Altura:<br> {{ item.height }}</p> <!-- Altura del Pokémon -->
+      <p class="move">Movimiento Especial:<br> {{ item.moves[0].move.name }}</p> <!-- Movimiento especial del Pokémon -->
+    </ion-card-content>
+  </ion-card>
+</ion-content>

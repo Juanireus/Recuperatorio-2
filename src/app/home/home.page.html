@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="title">Almacen de Pokemon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Barra de búsqueda -->
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="searchText" (ionChange)="BuscarPokemon()" placeholder="Buscar por Nombre"></ion-searchbar>
+  </ion-toolbar>
+
+  <!-- Lista de Pokémon -->
+  <ion-list>
+    <!-- Iterar sobre cada Pokémon en la lista filtrada -->
+    <!-- routerLink se utiliza para enlazar a la página de detalles del Pokémon -->
+    <ion-item *ngFor="let pokemon of filtroPokemons.slice(0, 10); let i = index" [routerLink]="'/detalles/' + (i + 1)">
+      {{ pokemon.name }}
+    </ion-item>
+  </ion-list>
+
+  <!-- Mostrar mensaje si no se encuentra ningún resultado -->
+  <div *ngIf="searchText && filtroPokemons.length === 0" class="no-results">
+    Nombre no registrado
+  </div>
+</ion-content>
